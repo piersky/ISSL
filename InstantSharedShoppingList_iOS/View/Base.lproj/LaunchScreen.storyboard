@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_screen" translatesAutoresizingMaskIntoConstraints="NO" id="VdV-LO-5wA">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instant Shared Shopping List" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hq-Fm-zMT">
+                                <rect key="frame" x="111" y="74" width="192" height="243"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="192" id="BrP-LJ-OuY"/>
+                                    <constraint firstAttribute="height" constant="243" id="NOH-qc-P2o"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="192" id="pJH-qm-Ch0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="48"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STu-X9-gjf">
+                                <rect key="frame" x="20" y="789" width="374" height="53"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="34"/>
+                                <state key="normal" title="© Pier Luigi Papeschi">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1hq-Fm-zMT" firstAttribute="centerX" secondItem="STu-X9-gjf" secondAttribute="centerX" id="424-nh-8Sb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="STu-X9-gjf" secondAttribute="bottom" constant="20" id="4Iu-4C-4EV"/>
+                            <constraint firstItem="STu-X9-gjf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="D56-cV-ovB"/>
+                            <constraint firstItem="1hq-Fm-zMT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="FSt-eJ-TUl"/>
+                            <constraint firstAttribute="bottom" secondItem="VdV-LO-5wA" secondAttribute="bottom" id="Wq4-wV-Aul"/>
+                            <constraint firstItem="VdV-LO-5wA" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="fAi-Up-TVf"/>
+                            <constraint firstItem="VdV-LO-5wA" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="pw8-Sn-GtJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="STu-X9-gjf" secondAttribute="trailing" constant="20" id="wUV-d8-jed"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VdV-LO-5wA" secondAttribute="trailing" id="xej-DT-hRG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="splash_screen" width="500" height="666.5"/>
+    </resources>
+</document>
