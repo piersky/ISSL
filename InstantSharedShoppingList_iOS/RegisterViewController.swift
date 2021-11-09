@@ -50,19 +50,23 @@ class RegisterViewController: UIViewController {
                     
                     //Insert personal data in to the database
                     let newUser = self.db.collection("users")
-                    newUser.document(self.emailTextField.text!).setData([
-                        "name": self.nameTextField.text!,
-                        "email": self.emailTextField.text!,
-                        "created": createdAt])
                     
-                    self.defaults.set(self.nameTextField.text!, forKey: "user_name")
-                    self.defaults.set(self.emailTextField.text!, forKey: "user_email")
+                    newUser
+                        .document(self.emailTextField.text!)
+                        .setData([
+                            "name": self.nameTextField.text!,
+                            "email": self.emailTextField.text!,
+                            "created": createdAt
+                        ])
+                    
+                    self.defaults.set(self.nameTextField.text!, forKey: K.u_name)
+                    self.defaults.set(self.emailTextField.text!, forKey: K.u_mail)
                     
                     self.performSegue(withIdentifier: "gotoItems", sender: nil)
                 }
             }
         } else {
-            showErrorAlert(msg: "Dati inseriti non validi: \(validation)")
+            showErrorAlert(msg: NSLocalizedString("Data not valid", comment: "Inserted data") + ": \(validation)")
         }
     }
     
@@ -70,24 +74,24 @@ class RegisterViewController: UIViewController {
         var res = ""
         
         if emailTextField.text!.count < 4 {
-            res += "Email troppo corta "
+            res += NSLocalizedString("Email short", comment: "Inglese")
         }
         
         if !passwordTextField.text!.elementsEqual(checkPasswordTextField.text!) {
-            res += "Password non uguali "
+            res += NSLocalizedString("Password not equal", comment: "Inglese")
         }
         
         if passwordTextField.text!.count < 4 {
-            res += "Password troppo corta"
+            res += NSLocalizedString("Password short", comment: "Inglese")
         }
         
         return res
     }
     
     func showErrorAlert(msg: String) {
-        let alert = UIAlertController(title: "Error", message: msg, preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: NSLocalizedString("Error", comment: "Inglese"), message: msg, preferredStyle: UIAlertController.Style.alert)
         
-        alert.addAction(UIAlertAction(title: "Retry",
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Retry", comment: "Inglese"),
                                       style: UIAlertAction.Style.default,
                                       handler: {(_: UIAlertAction!) in
         }))

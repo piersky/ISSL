@@ -41,16 +41,18 @@ class LoginViewController: UIViewController {
                 self.showErrorAlert(msg: error!.localizedDescription)
                 
             } else {
-                print("Login succesful...")
+                print("Login successful...")
                 
                 let usersCollection = self.db.collection("users")
                 let query = usersCollection.whereField("email", isEqualTo: self.emailTextField.text!)
                 
                 query.getDocuments() {(querySnapshot, error) in
                     if let docs = querySnapshot?.documents {
+                        
                         print("Nome \(docs[0].data()["name"] as! String)")
-                        self.defaults.set((docs[0].data()["name"] as! String), forKey: "user_name")
-                        self.defaults.set(self.emailTextField.text!, forKey: "user_email")
+                        
+                        self.defaults.set((docs[0].data()["name"] as! String), forKey: K.u_name)
+                        self.defaults.set(self.emailTextField.text!, forKey: K.u_mail)
                     }
                 }
                 
@@ -70,8 +72,8 @@ class LoginViewController: UIViewController {
     }
     
     func showErrorAlert(msg: String) {
-        let alert = UIAlertController(title: "Error", message: msg, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Retry",
+        let alert = UIAlertController(title: NSLocalizedString("Error", comment: "Somethings wrong"), message: msg, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Retry", comment: "An error occourred"),
                                       style: UIAlertAction.Style.default,
                                       handler: {(_: UIAlertAction!) in
         }))

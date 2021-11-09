@@ -11,7 +11,11 @@ import Firebase
 import SVProgressHUD
 
 
-class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ChangeItemDelegate, UITextFieldDelegate {
+class ItemsViewController:  UIViewController,
+                            UITableViewDelegate,
+                            UITableViewDataSource,
+                            ChangeItemDelegate,
+                            UITextFieldDelegate {
     
     // MARK: - Properties
     
@@ -22,6 +26,7 @@ class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     let defaults = UserDefaults.standard
     
     var db: Firestore!
+    // FIXME
     var listId = "5LC8zA3y3fS9AWWwF6kL"
     private var documents: [DocumentSnapshot] = []
     
@@ -43,8 +48,12 @@ class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        db = Firestore.firestore()
+        
         addItemTextField.delegate = self
         addItemTextField.addTarget(self, action:#selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)), for: UIControl.Event.editingChanged)
         
@@ -53,8 +62,7 @@ class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         addItemTextField.layer.cornerRadius = 20.0
         addItemTextField.layer.borderWidth = 1.0
         addItemTextField.layer.borderColor = UIColor.red.cgColor
-
-        db = Firestore.firestore()
+        
         itemsTableView.delegate = self
         itemsTableView.dataSource = self
         
@@ -65,6 +73,7 @@ class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         configureTableView()
         
+        // FIXME
         self.title = "SPESA"
     }
     
@@ -100,7 +109,12 @@ class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let firestore: Firestore = Firestore.firestore()
         
         //if listId != nil {
-        return firestore.collection("lists").document(self.listId).collection("items").order(by: "isChecked").order(by: "timestamp", descending: true)
+        return firestore
+            .collection("lists")
+            .document(self.listId)
+            .collection("items")
+            .order(by: "isChecked")
+            .order(by: "timestamp", descending: true)
         //Linda vuole order(by: "timestamp", descending: true
         //} else {
         //DA RIVEDERE
@@ -248,8 +262,8 @@ class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             print("Properly logged out")
             
-            defaults.set("", forKey: "user_name")
-            defaults.set("", forKey: "user_email")
+            defaults.set("", forKey: K.u_name)
+            defaults.set("", forKey: K.u_mail)
             
             let main = UIStoryboard(name: "Main", bundle: nil)
             let welcome = main.instantiateViewController(withIdentifier: "WelcomeVC")
@@ -329,29 +343,40 @@ class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func deletePressed(cell: ItemTableViewCell) {
-        let alert = UIAlertController(title: "Delete?", message: "Sure want to delete?", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "YES", style: UIAlertAction.Style.default, handler: {(_: UIAlertAction!) in
+        let alert = UIAlertController(title: NSLocalizedString("Delete", comment: "Inglese"), message: NSLocalizedString("Sure delete?", comment: "Inglese"), preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: "Inglese"), style: UIAlertAction.Style.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Inglese"), style: UIAlertAction.Style.default, handler: {(_: UIAlertAction!) in
+            
             print("Cliccato da deletage delete cancellato: \(cell)")
             
             if self.isSearching {
                 self.resetAddItemTextField()
                 let item = self.filteredItems[(cell.cellIndex?.row)!]
-                self.db.collection("lists").document(self.listId).collection("items").document(item.id).delete() { err in
-                    if let err = err {
-                        print("Error removing filtered document: \(err)")
-                    } else {
-                        print("Filtered document successfully removed!")
-                    }
+                self.db
+                    .collection("lists")
+                    .document(self.listId)
+                    .collection("items")
+                    .document(item.id)
+                    .delete() { err in
+                        if let err = err {
+                            print("Error removing filtered document: \(err)")
+                        } else {
+                            print("Filtered document successfully removed!")
+                        }
                 }
             } else {
                 let item = self.items[(cell.cellIndex?.row)!]
-                self.db.collection("lists").document(self.listId).collection("items").document(item.id).delete() { err in
-                    if let err = err {
-                        print("Error removing document: \(err)")
-                    } else {
-                        print("Document successfully removed!")
-                    }
+                self.db
+                    .collection("lists")
+                    .document(self.listId)
+                    .collection("items")
+                    .document(item.id)
+                    .delete() { err in
+                        if let err = err {
+                            print("Error removing document: \(err)")
+                        } else {
+                            print("Document successfully removed!")
+                        }
                 }
             }
         }))
@@ -361,8 +386,10 @@ class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func setChecked(cell: ItemTableViewCell) {
         print("setChecked \(String(describing: cell.itemTextField.text))")
+        
         cell.checkedBtn.isSelected = true
         cell.checkedBtn.setImage(UIImage(named: "ic_check_box"), for: .normal)
+        
         let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: cell.itemTextField.text!)
         attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSMakeRange(0, attributeString.length))
         cell.itemTextField.attributedText = attributeString
@@ -379,8 +406,10 @@ class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func setUnchecked(cell: ItemTableViewCell) {
         print("setUnchecked \(String(describing: cell.itemTextField.text))")
+        
         cell.checkedBtn.isSelected = false
         cell.checkedBtn.setImage(UIImage(named: "ic_check_box_outline_blank"), for: .normal)
+        
         let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: cell.itemTextField.text!)
         attributeString.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSMakeRange(0, attributeString.length))
         cell.itemTextField.attributedText = attributeString
@@ -397,7 +426,12 @@ class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //animator.animate(cell: cell, at: cell.cellIndex!, in: itemsTableView)
         
         if isSearching {
-            let itemRef = db.collection("lists").document(listId).collection("items").document(filteredItems[(cell.cellIndex?.row)!].id)
+            let itemRef = db
+                .collection("lists")
+                .document(listId)
+                .collection("items")
+                .document(filteredItems[(cell.cellIndex?.row)!].id)
+            
             itemRef.updateData(["isChecked": !filteredItems[(cell.cellIndex?.row)!].isChecked]) { err in
                 if let err = err {
                     print("Error updating data \(err)")
@@ -406,7 +440,12 @@ class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 }
             }
         } else {
-            let itemRef = db.collection("lists").document(listId).collection("items").document(items[(cell.cellIndex?.row)!].id)
+            let itemRef = db
+                .collection("lists")
+                .document(listId)
+                .collection("items")
+                .document(items[(cell.cellIndex?.row)!].id)
+            
             itemRef.updateData(["isChecked": !items[(cell.cellIndex?.row)!].isChecked]) { err in
                 if let err = err {
                     print("Error updating data \(err)")
@@ -422,7 +461,12 @@ class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func editingItemEnded(cell: ItemTableViewCell) {
         //Se edito un item che è stato filtrato???
         if isSearching {
-            let itemRef = db.collection("lists").document(listId).collection("items").document(filteredItems[(cell.cellIndex?.row)!].id)
+            let itemRef = db
+                .collection("lists")
+                .document(listId)
+                .collection("items")
+                .document(filteredItems[(cell.cellIndex?.row)!].id)
+            
             itemRef.updateData(["name": cell.itemTextField.text!]) { err in
                 if let err = err {
                     print("Error updating filtered data \(err)")
@@ -431,7 +475,12 @@ class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 }
             }
         } else {
-            let itemRef = db.collection("lists").document(listId).collection("items").document(items[(cell.cellIndex?.row)!].id)
+            let itemRef = db
+                .collection("lists")
+                .document(listId)
+                .collection("items")
+                .document(items[(cell.cellIndex?.row)!].id)
+            
             itemRef.updateData(["name": cell.itemTextField.text!]) { err in
                 if let err = err {
                     print("Error updating data \(err)")

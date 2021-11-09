@@ -23,6 +23,8 @@
 		8625B84622E2E90300DABB21 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8625B84522E2E90300DABB21 /* User.swift */; };
 		8625B84822E34D6800DABB21 /* LocalCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8625B84722E34D6800DABB21 /* LocalCollection.swift */; };
 		8669D286235D84DC0000C7CE /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 8669D285235D84DC0000C7CE /* Fonts */; };
+		86BD5993273AE6FD006961B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86BD5992273AE6FD006961B4 /* Localizable.strings */; };
+		86BD5995273AE916006961B4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BD5994273AE916006961B4 /* Constants.swift */; };
 		86DE2A4922E435CF00177CA8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE2A4822E435CF00177CA8 /* LoginViewController.swift */; };
 		86DE2A4B22E435F700177CA8 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE2A4A22E435F700177CA8 /* RegisterViewController.swift */; };
 		86DE2A4D22E43D9600177CA8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE2A4C22E43D9600177CA8 /* SettingsViewController.swift */; };
@@ -54,6 +56,8 @@
 		8625B84522E2E90300DABB21 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8625B84722E34D6800DABB21 /* LocalCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCollection.swift; sourceTree = "<group>"; };
 		8669D285235D84DC0000C7CE /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
+		86BD5992273AE6FD006961B4 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		86BD5994273AE916006961B4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		86DE2A4822E435CF00177CA8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		86DE2A4A22E435F700177CA8 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		86DE2A4C22E43D9600177CA8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 				8613F28722DB310400247C16 /* Info.plist */,
 				8613F28D22DB382100247C16 /* GoogleService-Info.plist */,
 				8625B84722E34D6800DABB21 /* LocalCollection.swift */,
+				86BD5992273AE6FD006961B4 /* Localizable.strings */,
+				86BD5994273AE916006961B4 /* Constants.swift */,
 			);
 			path = InstantSharedShoppingList_iOS;
 			sourceTree = "<group>";
@@ -248,6 +254,7 @@
 				8613F28E22DB382100247C16 /* GoogleService-Info.plist in Resources */,
 				8613F28322DB310400247C16 /* Assets.xcassets in Resources */,
 				8606584F22ED826400D0A5F4 /* ItemTableViewCell.xib in Resources */,
+				86BD5993273AE6FD006961B4 /* Localizable.strings in Resources */,
 				8669D286235D84DC0000C7CE /* Fonts in Resources */,
 				8613F28122DB310300247C16 /* Main.storyboard in Resources */,
 			);
@@ -320,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86DE2A4B22E435F700177CA8 /* RegisterViewController.swift in Sources */,
+				86BD5995273AE916006961B4 /* Constants.swift in Sources */,
 				86E71C2D2351DBB0000249E9 /* ListTableViewCell.swift in Sources */,
 				86DE2A6022E4577000177CA8 /* ItemsViewController.swift in Sources */,
 				8613F27E22DB310300247C16 /* WelcomeViewController.swift in Sources */,
