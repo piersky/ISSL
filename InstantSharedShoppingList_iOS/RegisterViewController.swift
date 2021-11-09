@@ -32,9 +32,12 @@ class RegisterViewController: UIViewController {
         let validation = validateForm()
         if validation.isEmpty {
             SVProgressHUD.show()
+            
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) {
+                
                 (user, error) in
                 SVProgressHUD.dismiss()
+                
                 if error != nil {
                     print(error!)
                     self.showErrorAlert(msg: error!.localizedDescription)
