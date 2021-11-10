@@ -9,6 +9,9 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    
+    @IBOutlet var name: UILabel!
+    @IBOutlet var email: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

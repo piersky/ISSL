@@ -1,0 +1,63 @@
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "396-Li-bfH"; */
+"396-Li-bfH.placeholder" = "Email";
+
+/* Class = "UIButton"; normalTitle = "Register"; ObjectID = "5kN-gg-vaK"; */
+"5kN-gg-vaK.normalTitle" = "Register";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "AAf-5L-Wlu"; */
+"AAf-5L-Wlu.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "GwX-8l-qJY"; */
+"GwX-8l-qJY.normalTitle" = "Login";
+
+/* Class = "UIButton"; normalTitle = "REGISTER"; ObjectID = "J9n-nQ-KyS"; */
+"J9n-nQ-KyS.normalTitle" = "REGISTER";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "KeI-Gx-DgV"; */
+"KeI-Gx-DgV.placeholder" = "Name";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "M6D-q4-JaV"; */
+"M6D-q4-JaV.placeholder" = "Password";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "Mcm-n5-czy"; */
+"Mcm-n5-czy.placeholder" = "Password";
+
+/* Class = "UITabBarItem"; title = "Items"; ObjectID = "NHr-pR-ZyJ"; */
+"NHr-pR-ZyJ.title" = "Items";
+
+/* Class = "UILabel"; text = "Welcome"; ObjectID = "emf-gY-KnM"; */
+"emf-gY-KnM.text" = "Welcome";
+
+/* Class = "UIBarButtonItem"; title = "Start"; ObjectID = "fvG-CF-S31"; */
+"fvG-CF-S31.title" = "Start";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "hyi-lO-4ul"; */
+"hyi-lO-4ul.title" = "Settings";
+
+/* Class = "UITabBarItem"; title = "Lists"; ObjectID = "k5l-hf-zZf"; */
+"k5l-hf-zZf.title" = "Lists";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "l0o-XN-Qay"; */
+"l0o-XN-Qay.placeholder" = "Email";
+
+/* Class = "UIButton"; normalTitle = "Register"; ObjectID = "n6f-4U-4xv"; */
+"n6f-4U-4xv.normalTitle" = "Register";
+
+/* Class = "UITextField"; placeholder = "Check Password"; ObjectID = "pW3-1e-9c3"; */
+"pW3-1e-9c3.placeholder" = "Check Password";
+
+/* Class = "UIButton"; normalTitle = "Forgotten Password"; ObjectID = "qLX-p5-oZL"; */
+"qLX-p5-oZL.normalTitle" = "Forgotten Password";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "tsU-pn-kee"; */
+"tsU-pn-kee.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "LOGIN"; ObjectID = "uA5-qH-oJU"; */
+"uA5-qH-oJU.normalTitle" = "LOGIN";
+
+/* Class = "UILabel"; text = "Ver. 0.2"; ObjectID = "vVf-iP-daP"; */
+"vVf-iP-daP.text" = "Ver. 0.2";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "x7j-Yl-nv2"; */
+"x7j-Yl-nv2.normalTitle" = "Login";

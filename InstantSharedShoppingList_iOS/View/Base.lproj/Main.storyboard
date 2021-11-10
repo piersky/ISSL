@@ -279,14 +279,49 @@
         <!--Settings-->
         <scene sceneID="k9j-sT-JaN">
             <objects>
-                <viewController id="fAW-fq-8M8" sceneMemberID="viewController">
+                <viewController id="fAW-fq-8M8" customClass="SettingsViewController" customModule="InstantSharedShoppingList_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kgm-HI-Ugg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_icon_300" translatesAutoresizingMaskIntoConstraints="NO" id="Bt8-ua-t5Q">
+                                <rect key="frame" x="127.66666666666669" y="20" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="JLk-7e-mhR"/>
+                                    <constraint firstAttribute="width" constant="120" id="Y0a-Ix-zPm"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAo-gB-tSP">
+                                <rect key="frame" x="20" y="150" width="335" height="29"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z02-KB-Da9">
+                                <rect key="frame" x="20" y="189" width="335" height="19"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="94j-Gp-ixc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wAo-gB-tSP" firstAttribute="leading" secondItem="94j-Gp-ixc" secondAttribute="leading" constant="20" id="3jA-Qd-htA"/>
+                            <constraint firstItem="wAo-gB-tSP" firstAttribute="top" secondItem="Bt8-ua-t5Q" secondAttribute="bottom" constant="10" id="Nmq-He-bbK"/>
+                            <constraint firstItem="94j-Gp-ixc" firstAttribute="trailing" secondItem="wAo-gB-tSP" secondAttribute="trailing" constant="20" id="emG-0W-OyA"/>
+                            <constraint firstItem="z02-KB-Da9" firstAttribute="top" secondItem="wAo-gB-tSP" secondAttribute="bottom" constant="10" id="fbh-t3-lO2"/>
+                            <constraint firstItem="z02-KB-Da9" firstAttribute="leading" secondItem="94j-Gp-ixc" secondAttribute="leading" constant="20" id="nIo-At-R5m"/>
+                            <constraint firstItem="Bt8-ua-t5Q" firstAttribute="centerX" secondItem="wAo-gB-tSP" secondAttribute="centerX" id="tD5-bA-TTl"/>
+                            <constraint firstItem="94j-Gp-ixc" firstAttribute="trailing" secondItem="z02-KB-Da9" secondAttribute="trailing" constant="20" id="tGG-cZ-VFT"/>
+                            <constraint firstItem="Bt8-ua-t5Q" firstAttribute="top" secondItem="94j-Gp-ixc" secondAttribute="top" constant="20" id="wRV-yh-5cs"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" selectedImage="ic_settings_18pt" id="hyi-lO-4ul"/>
+                    <connections>
+                        <outlet property="email" destination="z02-KB-Da9" id="pei-Jw-SRF"/>
+                        <outlet property="name" destination="wAo-gB-tSP" id="93l-Ys-AFh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BR6-3U-e0D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -468,6 +503,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="add_checked" width="20" height="20"/>
+        <image name="app_icon_300" width="300" height="300"/>
         <image name="book" catalog="system" width="128" height="99"/>
         <image name="hand.point.left" catalog="system" width="128" height="99"/>
         <image name="ic_settings_18pt" width="18" height="18"/>

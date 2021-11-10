@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  InstantSharedShoppingList_iOS
+
+  Created by Pier Luigi Papeschi on 09/11/21.
+  Copyright © 2021 Pier Luigi Papeschi. All rights reserved.
+*/
+
+"Retry" = "Riprova";
+"Error" = "ERRORE";
+"Data not valid" = "Dati inseriti non validi";
+"Email short" = "Indirizzo email troppo corto ";
+"Password not equal" = "Le password non coincidono ";
+"Password short" = "Password troppo corta";
+"Delete" = "ELIMINA";
+"Sure delete?" = "Sicuro di voler eliminare?";
+"No" = "No";
+"Yes" = "Sì";
